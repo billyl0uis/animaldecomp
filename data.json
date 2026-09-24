@@ -1,0 +1,79 @@
+{
+  "site_title": "Stages of Decomposition",
+  "animals": [
+    {
+      "id": "pig",
+      "name": "Domestic Pig",
+      "note": "Pigs are the standard stand-in for human bodies in forensic decomposition research because of their similar size, skin, fat distribution, and gut bacteria.",
+      "stages": [
+        {
+          "stage_name": "Fresh",
+          "description": "Begins at the moment of death. The heart stops, so oxygen no longer reaches the cells, and they start to break themselves down from the inside (autolysis). The body cools to match its surroundings (algor mortis), blood settles to the lowest points (livor mortis), and the muscles temporarily stiffen (rigor mortis). Blowflies can find the body within minutes to hours and lay eggs around natural openings and wounds.",
+          "image": "images/placeholders/pig-1-fresh.svg",
+          "image_alt": "Placeholder: pig carcass in the fresh stage"
+        },
+        {
+          "stage_name": "Bloat",
+          "description": "Bacteria that normally live in the gut begin digesting the body without oxygen. They release gases such as hydrogen sulfide and methane, which inflate the abdomen. The skin may discolor in a green-to-purple pattern of veins called marbling, and pressure can force fluids out of the body (purge fluid). Fly eggs hatch and maggots begin feeding.",
+          "image": "images/placeholders/pig-2-bloat.svg",
+          "image_alt": "Placeholder: pig carcass in the bloat stage"
+        },
+        {
+          "stage_name": "Active Decay",
+          "description": "The skin ruptures, trapped gases escape, and the body deflates. Large masses of maggots feed on soft tissue, and this is when the body loses the most mass. Odor is at its strongest. Fluids seeping into the soil create a nutrient-rich zone around the body known as a cadaver decomposition island.",
+          "image": "images/placeholders/pig-3-active.svg",
+          "image_alt": "Placeholder: pig carcass in the active decay stage"
+        },
+        {
+          "stage_name": "Advanced Decay",
+          "description": "Most of the soft tissue is gone. Maggots finish feeding and leave the body to pupate in the surrounding soil. Other insects, such as beetles, become more common and feed on the drier remains. Surrounding plants may die back at first, then later grow more strongly from the added nutrients.",
+          "image": "images/placeholders/pig-4-advanced.svg",
+          "image_alt": "Placeholder: pig carcass in the advanced decay stage"
+        },
+        {
+          "stage_name": "Dry Remains",
+          "description": "Only bones, cartilage, hair, and dried skin remain. Decomposition slows dramatically. From here, the remains are broken down mainly by weathering, scavengers, and soil microbes, which can take years.",
+          "image": "images/placeholders/pig-5-dry.svg",
+          "image_alt": "Placeholder: pig remains in the dry stage"
+        }
+      ]
+    },
+    {
+      "id": "rabbit",
+      "name": "Rabbit",
+      "note": "Smaller bodies generally move through the stages faster than large ones, because insects and microbes can consume them more quickly.",
+      "stages": [
+        {
+          "stage_name": "Fresh",
+          "description": "TODO — replace with your own researched text. Cells begin breaking down (autolysis), the body cools and stiffens, and flies arrive to lay eggs.",
+          "image": "images/placeholders/rabbit-1-fresh.svg",
+          "image_alt": "Placeholder: rabbit carcass in the fresh stage"
+        },
+        {
+          "stage_name": "Bloat",
+          "description": "TODO — replace with your own researched text. Gut bacteria produce gases that swell the abdomen; maggots hatch and begin feeding.",
+          "image": "images/placeholders/rabbit-2-bloat.svg",
+          "image_alt": "Placeholder: rabbit carcass in the bloat stage"
+        },
+        {
+          "stage_name": "Active Decay",
+          "description": "TODO — replace with your own researched text. The body deflates as maggots consume soft tissue; most mass is lost here.",
+          "image": "images/placeholders/rabbit-3-active.svg",
+          "image_alt": "Placeholder: rabbit carcass in the active decay stage"
+        },
+        {
+          "stage_name": "Advanced Decay",
+          "description": "TODO — replace with your own researched text. Little soft tissue remains; maggots leave to pupate and beetles become more common.",
+          "image": "images/placeholders/rabbit-4-advanced.svg",
+          "image_alt": "Placeholder: rabbit carcass in the advanced decay stage"
+        },
+        {
+          "stage_name": "Dry Remains",
+          "description": "TODO — replace with your own researched text. Fur, bone, and dried skin remain and break down slowly through weathering.",
+          "image": "images/placeholders/rabbit-5-dry.svg",
+          "image_alt": "Placeholder: rabbit remains in the dry stage"
+        }
+      ]
+    }
+  ]
+}

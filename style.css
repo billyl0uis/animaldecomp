@@ -1,0 +1,233 @@
+/* =========================================================
+   1. Design tokens
+   Change colors/fonts here once and the whole site updates.
+   ========================================================= */
+:root {
+  --bg:          #1b1c1a;  /* page background (near-black, slightly warm) */
+  --surface:     #252723;  /* panels */
+  --surface-2:   #30332d;  /* buttons */
+  --border:      #3d4138;
+  --text:        #e6e2d8;  /* bone white */
+  --text-muted:  #a39e91;
+  --accent:      #b08d57;  /* muted ochre / earth tone */
+  --accent-text: #1b1c1a;
+
+  --font-body:    "Helvetica Neue", Arial, sans-serif;
+  --font-heading: Georgia, "Times New Roman", serif;
+
+  --radius: 6px;
+  --gap: 1.5rem;
+}
+
+/* =========================================================
+   2. Base
+   ========================================================= */
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-body);
+  line-height: 1.6;
+}
+
+h1, h2 {
+  font-family: var(--font-heading);
+  font-weight: normal;
+  margin: 0;
+}
+
+/* =========================================================
+   3. Header + control bar
+   ========================================================= */
+.site-header {
+  padding: var(--gap);
+  border-bottom: 1px solid var(--border);
+}
+
+.site-header h1 {
+  font-size: 1.75rem;
+  margin-bottom: 1rem;
+}
+
+.controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem 2.5rem;
+}
+
+.control-group {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.control-label {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text-muted);
+}
+
+.button-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+/* Shared look for every clickable button */
+.button-row button,
+.step-btn {
+  font: inherit;
+  font-size: 0.9rem;
+  padding: 0.45rem 0.9rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--surface-2);
+  color: var(--text);
+  cursor: pointer;
+  transition: background 0.15s, border-color 0.15s;
+}
+
+.button-row button:hover,
+.step-btn:hover:not(:disabled) {
+  border-color: var(--accent);
+}
+
+/* script.js sets aria-pressed="true" on the selected button.
+   Styling off that attribute keeps the visual state and the
+   screen-reader state in sync automatically. */
+.button-row button[aria-pressed="true"] {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: var(--accent-text);
+}
+
+.step-btn:disabled {
+  opacity: 0.4;
+  cursor: default;
+}
+
+/* Visible focus ring for keyboard users */
+button:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+/* =========================================================
+   4. Main split-screen layout
+   Desktop: image on the left (2 parts), sidebar on the right (1 part).
+   ========================================================= */
+.layout {
+  flex: 1;
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: var(--gap);
+  padding: var(--gap);
+  align-items: start;
+}
+
+/* --- Visual stage --- */
+.image-frame {
+  margin: 0;
+  width: 100%;
+  aspect-ratio: 16 / 9;          /* the frame keeps this shape no matter what */
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+
+.image-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;           /* shows the whole image without cropping */
+  display: block;
+  transition: opacity 0.25s;
+}
+
+/* script.js adds this class while a new image is loading */
+.image-frame img.is-loading { opacity: 0; }
+
+.stepper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 1rem;
+}
+
+.stage-counter {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
+
+/* --- Sidebar --- */
+.sidebar {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: var(--gap);
+}
+
+.eyebrow {
+  margin: 0 0 0.25rem;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--accent);
+}
+
+.sidebar h2 {
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+}
+
+.note {
+  margin-top: 1.5rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--border);
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
+
+.note:empty { display: none; }
+
+/* Error message (shown if data.json can't be loaded) */
+.error {
+  color: #e0a080;
+}
+.error code {
+  background: var(--surface-2);
+  padding: 0.1em 0.35em;
+  border-radius: 3px;
+}
+
+/* =========================================================
+   5. Footer
+   ========================================================= */
+.site-footer {
+  padding: 1rem var(--gap);
+  border-top: 1px solid var(--border);
+  color: var(--text-muted);
+  font-size: 0.8rem;
+}
+.site-footer p { margin: 0; }
+
+/* =========================================================
+   6. Mobile: stack the image above the sidebar
+   ========================================================= */
+@media (max-width: 800px) {
+  :root { --gap: 1rem; }
+
+  .layout {
+    grid-template-columns: 1fr;
+  }
+
+  .site-header h1 { font-size: 1.4rem; }
+  .sidebar h2 { font-size: 1.5rem; }
+}

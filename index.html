@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Stages of Decomposition</title>
+  <meta name="description" content="An interactive guide to the stages of animal decomposition.">
+  <link rel="stylesheet" href="style.css">
+  <!-- "defer" makes the script run after the HTML below has been read,
+       so script.js can safely look up elements by their id. -->
+  <script src="script.js" defer></script>
+</head>
+<body>
+
+  <header class="site-header">
+    <h1 id="site-title">Stages of Decomposition</h1>
+
+    <!-- Control bar. The buttons inside these two containers are NOT written
+         here — script.js builds them from data.json. That way, adding an
+         animal or a stage only means editing data.json. -->
+    <nav class="controls" aria-label="Choose animal and stage">
+      <div class="control-group">
+        <span class="control-label" id="animal-label">Animal</span>
+        <div id="animal-buttons" class="button-row" role="group" aria-labelledby="animal-label"></div>
+      </div>
+      <div class="control-group">
+        <span class="control-label" id="stage-label">Stage</span>
+        <div id="stage-buttons" class="button-row" role="group" aria-labelledby="stage-label"></div>
+      </div>
+    </nav>
+  </header>
+
+  <main class="layout">
+
+    <!-- Visual stage: the big illustration area -->
+    <section class="visual" aria-label="Illustration">
+      <!-- The frame is locked to 16:9 in CSS, so swapping in your real
+           artwork later will not shift the layout around. -->
+      <figure class="image-frame">
+        <img id="stage-image" src="" alt="">
+      </figure>
+
+      <div class="stepper">
+        <button id="prev-btn" class="step-btn" type="button" aria-label="Previous stage">&larr; Prev</button>
+        <span id="stage-counter" class="stage-counter"></span>
+        <button id="next-btn" class="step-btn" type="button" aria-label="Next stage">Next &rarr;</button>
+      </div>
+    </section>
+
+    <!-- Sidebar: the text for the selected stage.
+         aria-live tells screen readers to announce it when it changes. -->
+    <aside class="sidebar" aria-live="polite">
+      <p id="animal-name" class="eyebrow"></p>
+      <h2 id="stage-name">Loading…</h2>
+      <p id="stage-description"></p>
+      <p id="animal-note" class="note"></p>
+    </aside>
+
+  </main>
+
+  <footer class="site-footer">
+    <p>Midterm draft · Illustrations in progress</p>
+  </footer>
+
+</body>
+</html>
